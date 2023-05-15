@@ -1,15 +1,10 @@
 <?php include dirname(__DIR__) . '\..\layouts\header.phtml';?>
-<div>
-    <div>
-        <form action="">
-            <input type="text">
-            <button>
-
-            </button>
-        </form>
+<div class="container p-10 mx-auto my-auto flex justify-center grid grid-rows-2 bg-slate-500 place-content-center rounded">
+    <div class="container p-10 mx-auto my-auto row-span-1 bg-slate-200 place-content-center p-5">
+        <a href="addTask">Add Task</a>
     </div>
     <div>
-        <table>
+        <table class="bg-slate-300">
             <thead>
                 <tr>
                     <th>Username</th>
@@ -30,10 +25,10 @@
                     <td><?php echo $sel_task->finishedDate ?></td>
                     <td>
                         <div><div>
-                                <a href="">View</a>
+                                <a href="viewTask/<?php echo $sel_task->id?>">View</a>
                             </div>
                             <div>
-                                <a href="">Edit</a>
+                                <a href="editTask/<?php echo $sel_task->id?>">Edit</a>
                             </div>
                             <div>
                                 <a href="">Delete</a>
@@ -48,3 +43,4 @@
     </div>
 </div>
 <?php include dirname(__DIR__) . '\..\layouts\footer.phtml';?>
+
