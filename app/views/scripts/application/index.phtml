@@ -1,0 +1,50 @@
+<?php include dirname(__DIR__) . '\..\layouts\header.phtml';?>
+<div>
+    <div>
+        <form action="">
+            <input type="text">
+            <button>
+
+            </button>
+        </form>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Task</th>
+                    <th>Status</th>
+                    <th>Started Date</th>
+                    <th>Finished Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($this->listTasks as $sel_task): ?>
+                <tr>
+                    <td><?php echo $sel_task->username ?></td>
+                    <td><?php echo $sel_task->task ?></td>
+                    <td><?php echo $sel_task->status ?></td>
+                    <td><?php echo $sel_task->startingDate ?></td>
+                    <td><?php echo $sel_task->finishedDate ?></td>
+                    <td>
+                        <div><div>
+                                <a href="">View</a>
+                            </div>
+                            <div>
+                                <a href="">Edit</a>
+                            </div>
+                            <div>
+                                <a href="">Delete</a>
+                            </div>
+
+                        </div>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<?php include dirname(__DIR__) . '\..\layouts\footer.phtml';?>
