@@ -1,0 +1,28 @@
+<?php include dirname(__DIR__) . '\..\layouts\header.phtml';?>
+    <div>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Username</th>
+                    <td><?php echo $this->viewTask->username; ?></td>
+                </tr>
+                <tr>
+                    <th>Task</th>
+                    <td><?php echo $this->viewTask->task; ?></td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td><?php echo $this->viewTask->status; ?></td>
+                </tr>
+                <tr>
+                    <th>Started Date</th>
+                    <td><?php echo $this->viewTask->startingDate; ?></td>
+                </tr>
+                <tr>
+                    <th>Finished Date</th>
+                    <td><?php echo $this->viewTask->finishedDate; ?></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<?php include dirname(__DIR__) . '\..\layouts\footer.phtml';?>
