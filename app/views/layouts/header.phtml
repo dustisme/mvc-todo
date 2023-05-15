@@ -15,6 +15,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Braah+One&family=Darumadrop+One&family=Roboto&display=swap"
         rel="stylesheet">
+    <!-- Coolors Palette Widget -->
+    <script src="https://coolors.co/palette-widget/widget.js"></script>
+    <script
+        data-id="024897516610067105">new CoolorsPaletteWidget("024897516610067105", ["ef476f", "ffd166", "06d6a0", "118ab2", "073b4c"]); </script>
+    <script>
+        module.exports = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ["Darumadrop One", 'Roboto', '"Braah One"']
+                    },
+                },
+            },
+        };
+    </script>
 </head>
+<header class="container grid grid-cols-4 grid-rows-3 gap-3 p-10 mx-auto my-auto rounded">
+    <div class="col-span-2 flex justify-end items-end grid grid-cols-2 gap-4 text-[#06d6a0] p-3">
+        <p class="flex justify-end items-end content-end">Brought to you by: <span
+                class="p-3 w-40 font-bold tracking-wide text-xl text-white text-center inline-block align-middle uppercase bg-[#F81BDC]"><a
+                    target="_blank" href="https://cibernarium.barcelonactiva.cat/it-academy/inscripcio">it
+                    academy</span></a></p>
+    </div>
+    <nav class="col-span-2 flex justify-end items-end grid-cols-3 gap-4 place-items-baseline p-3">
+        <a href=""><i class="col-span-1 p-1.5 text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166] rounded-full fa fa-house"></i></a>
+        <form action="flex flex-row-1 grid grid-cols-3 col-span-2">
+            <input type="text"
+                class="basis-2/3 col-span-2 rounded border-2 border-[#118ab2] focus:outline-none focus:border-[#ef476f]"
+                placeholder=" Search..." name="search">
+            <button type="submit"><i
+                    class="basis-1/3 col-span-1 p-1.5 text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166] rounded-full fa fa-search"></i></button>
+        </form>
+    </nav>
+    <div class="flex justify-center place-content-center col-span-4 row-span-2 p-5">
+        <h1 class="p-1 font-['Darumadrop_One'] text-[#06d6a0] font-bold text-5xl">My TO DO App</h1>
+    </div>
+</header>
 
-<body>
+<body class="bg-[#073b4c]">
