@@ -10,7 +10,8 @@ include_once 'Status.php';
         private Status $status;
 
         //Status is a constant var
-        function __construct(string $task_description, string $username, $starting_date, Status $status = Status::executing) {
+        function __construct(int $task_id, string $task_description, string $username, $starting_date, Status $status = Status::executing) {
+            $this->task_id = $task_id;
             $this->task_description = $task_description;
             $this->username = $username;
             $this->starting_date = $starting_date;
