@@ -23,8 +23,8 @@ class Persistence implements PersistenceInterface {
         $this->searchTask($task_id)->status = $_POST['status'];
         $this->searchTask($task_id)->startingDate = $_POST['starting_date'];
         $this->searchTask($task_id)->finishedDate = $_POST['finished_date'];
-
-        return $this->addDataToJson($this->task_array);
+        $this->addDataToJson($this->task_array);
+        return $this->task_array;
     }
     function addTask() {
         $task = new Task("","", '');
