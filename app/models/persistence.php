@@ -1,7 +1,7 @@
 <?php 
 include 'Task.php';
 
-class Persistence implements PersistenceInterface {
+class Persistence implements persistenceInterface {
     private Array $task_array = array();
     private int $track_id;
 
@@ -24,12 +24,10 @@ class Persistence implements PersistenceInterface {
         $this->searchTask($task_id)->startingDate = $_POST['starting_date'];
         $this->searchTask($task_id)->finishedDate = $_POST['finished_date'];
         $this->addDataToJson($this->task_array);
-        return $this->task_array;
+        return $this->addDataToJson($this->task_array);
     }
     function addTask() {
-        $task = new Task("","", '');
-        $this->track_id += 1;
-        $task->task_id = $this->track_id;
+        $task = new Task($this->track_id += 1, "","", '');
         array_push($this->task_array[], $task);
         return $this->addDataToJson($this->task_array);
     }
