@@ -1,21 +1,41 @@
-<?php include dirname(__DIR__) . '\..\layouts\header.phtml';?>
-<form action="">
-    <div>
-        <div>
-            <label for="">Username</label>
-        </div>
-        <div>
-            <label for="">Task</label>
-        </div>
-        <div>
-            <label for="">Status</label>
-        </div>
-        <div>
-            <label for="">Started Date</label>
-        </div>
-        <div>
-            <label for="">Finished Date</label>
-        </div>
+<?php include dirname(__DIR__) . '\..\layouts\header.phtml'; ?>
+<form action="" method="POST">
+    <div class="container bg-slate-300 p-10 mx-auto my-auto p-10 rounded">
+        <table>
+            <tbody>
+                <tr>
+                    <th class="bg-slate-400 rounded">Username</th>
+                    <td class="bg-slate-100">
+                        <?php echo $this->updateTask->username; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="bg-slate-400 rounded">Task</th>
+                    <td class="bg-slate-100">
+                        <?php echo $this->updateTask->task; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="bg-slate-400 rounded">Status</th>
+                    <td class="bg-slate-100">
+                        <?php echo $this->updateTask->status; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="bg-slate-400 rounded">Started Date</th>
+                    <td class="bg-slate-100">
+                        <?php echo $this->updateTask->startingDate; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="bg-slate-400 rounded">Finished Date</th>
+                    <td class="bg-slate-100">
+                        <?php echo $this->updateTask->finishedDate; ?>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+    <button type="submit" class="p-10">Submit changes</button>
 </form>
-<?php include dirname(__DIR__) . '\..\layouts\footer.phtml';?>
+<?php include dirname(__DIR__) . '\..\layouts\footer.phtml'; ?>
