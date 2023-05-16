@@ -17,8 +17,7 @@ class Persistence implements persistenceInterface {
     function viewTask($task_id) {
         return $this->searchTask($task_id);
     }
-    function updateTask($data, $task_id) {
-        $data = $_GET;
+    function updateTask($task_id) {
         if ($this->searchTask($task_id) == $_GET['id']) {
             $this->searchTask($task_id)->username = $_POST['username'];
             $this->searchTask($task_id)->task = $_POST['task'];
