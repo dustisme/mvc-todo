@@ -24,12 +24,13 @@ class Persistence implements persistenceInterface
     function updateTask($task_id, Array $data)
     {
         $task = $this->searchTask($task_id);
-        
-        $task->username = $data['username'];
-        $task->taskDescription = $data['taskDescription'];
-        $task->status = $data['status'];
-        $task->startingDate = $data['startingDate'];
-        $task->finishedDate = $data['finishedDate'];
+        if (!empty($data['useranme'] || $data['taskDescription'] || $data['status'] || $data['sartingDate'] || $data['finishedDate'])) {
+            $task->username = $data['username'];
+            $task->taskDescription = $data['taskDescription'];
+            $task->status = $data['status'];
+            $task->startingDate = $data['startingDate'];
+            $task->finishedDate = $data['finishedDate'];
+        }
         $this->addDataToJson($this->task_array);
     }
     function addTask()
