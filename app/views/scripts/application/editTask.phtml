@@ -18,10 +18,17 @@
                 </tr>
                 <tr>
                     <th class="p-2 text-[#118ab2] bg-[#ffd166]">Status</th>
-                    <td class="p-2" name="status">
-                    <input type="text" name="status" value="<?php echo $this->viewTask->status; ?>" class="rounded border-2 border-[#118ab2] focus:outline-none focus:border-[#ef476f]">
-
-                    </td>
+                    <td>
+                    <select class="rounded m-1.5 border-2 border-[#118ab2] focus:outline-none focus:border-[#ef476f]"
+                        name="status" id="">
+                        <option value="Pending" <?php echo $this->viewTask->status == "pending" ? "selected" : "" ?>>
+                            Pending</option>
+                        <option value="Executing" <?php echo $this->viewTask->status == "executing" ? "selected" : "" ?>>
+                            Executing</option>
+                        <option value="Finished" <?php echo $this->viewTask->status == "finished" ? "selected" : "" ?>>
+                            Finished</option>
+                    </select>
+                </td>
                 </tr>
                 <tr>
                     <th class="p-2 text-[#118ab2] bg-[#ffd166]">Started Date</th>
