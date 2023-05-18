@@ -25,7 +25,7 @@ class ApplicationController extends Controller
     }
     public function updateTaskAction()
     {
-        $this->persistence->updateTask($this->_namedParameters['id'], $_POST['username'], $_POST['taskDescription'], $_POST['status'], $_POST['startingDate'], $_POST['finishedDate']);
+        $this->persistence->updateTask($this->_namedParameters['id'], $_POST);
         header("Location: " . WEB_ROOT . "/");
     }
     public function addTaskAction()

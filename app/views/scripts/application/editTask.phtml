@@ -1,45 +1,44 @@
 <?php include dirname(__DIR__) . '\..\layouts\header.phtml'; ?>
-<form action="updateTask/<?php echo $this->updateTask->id?>" method="POST">
+<form action="<?php echo WEB_ROOT?>/updateTask/<?php echo $this->editTask->id?>" method="POST">
     <div class="container p-10 mx-auto my-auto p-10 rounded">
         <table class="min-w-full table-auto border-2 border-[#ef476f] border-collapse">
             <tbody>
                 <tr>
                     <th class="p-2 text-[#118ab2] bg-[#ffd166]">Username</th>
                     <td class="p-2">
-                        <input type="text" name="username" value="<?php echo $this->updateTask->username; ?>">
+                        <input type="text" name="username" value="<?php echo $this->viewTask->username; ?>" class="rounded border-2 border-[#118ab2] focus:outline-none focus:border-[#ef476f]">
                     </td>
                 </tr>
                 <tr>
                     <th class="p-2 text-[#118ab2] bg-[#ffd166]">Task</th>
                     <td class="p-2">
-                    <input type="text" name="task" value="<?php echo $this->updateTask->task; ?>">
+                    <input type="text" name="task" value="<?php echo $this->viewTask->taskDescription; ?>" class="rounded border-2 border-[#118ab2] focus:outline-none focus:border-[#ef476f]">
 
                     </td>
                 </tr>
                 <tr>
                     <th class="p-2 text-[#118ab2] bg-[#ffd166]">Status</th>
                     <td class="p-2" name="status">
-                    <input type="text" name="status" value="<?php echo $this->updateTask->status; ?>">
+                    <input type="text" name="status" value="<?php echo $this->viewTask->status; ?>" class="rounded border-2 border-[#118ab2] focus:outline-none focus:border-[#ef476f]">
 
                     </td>
                 </tr>
                 <tr>
                     <th class="p-2 text-[#118ab2] bg-[#ffd166]">Started Date</th>
                     <td class="p-2">
-                        <input type="text" name="startingDate" value="<?php echo $this->updateTask->startingDate; ?>">
+                        <input type="text" name="startingDate" value="<?php echo $this->viewTask->startingDate; ?>" class="rounded border-2 border-[#118ab2] focus:outline-none focus:border-[#ef476f]">
                     </td>
                 </tr>
                 <tr>
                     <th class="p-2 text-[#118ab2] bg-[#ffd166]">Finished Date</th>
                     <td class="p-2">
-                        <input type="text" name="finishedDate" value="<?php echo $this->updateTask->finishedDate; ?>">
-
+                        <input type="text" name="finishedDate" value="<?php echo $this->viewTask->finishedDate; ?>" class="rounded border-2 border-[#118ab2] focus:outline-none focus:border-[#ef476f]">
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <button type="submit" class="p-10">Submit changes</button>
-    <button type="button"><a href="<?php echo WEB_ROOT?>">Return to homepage</a></button>
+    <button type="button" class="m-5 p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]"><a href="<?php echo WEB_ROOT?>">Return to homepage</a></button>
+    <button type="submit" class="m-5 p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]">Submit changes</button>
 </form>
 <?php include dirname(__DIR__) . '\..\layouts\footer.phtml'; ?>
