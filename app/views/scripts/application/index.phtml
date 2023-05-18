@@ -10,8 +10,6 @@
                 <th class="p-2 text-[#118ab2] bg-[#ffd166]">Username</th>
                 <th class="p-2 text-[#118ab2] bg-[#ffd166]">Task</th>
                 <th class="p-2 text-[#118ab2] bg-[#ffd166]">Status</th>
-                <th class="p-2 text-[#118ab2] bg-[#ffd166]">Starting Date</th>
-                <th class="p-2 text-[#118ab2] bg-[#ffd166]">Finished Date</th>
                 <th class="p-2 text-[#118ab2] bg-[#ffd166]">Actions</th>
             </tr>
         </thead>
@@ -27,24 +25,14 @@
                     <td class="text-center p-2">
                         <?php echo $sel_task->status ?>
                     </td>
-                    <td class="text-center p-2">
-                        <?php echo $sel_task->startingDate ?>
-                    </td>
-                    <td class="text-center p-2">
-                        <?php echo $sel_task->finishedDate ?>
-                    </td>
                     <td>
                         <div
-                            class="container flex justify-center place-items-center grid grid-cols-3 gap-5 p-5 mx-auto my-auto">
+                            class="container flex justify-center place-items-center grid grid-cols-2 gap-5 p-5 mx-auto my-auto">
                             <div class="col-span-1">
                                 <a href="viewTask/<?php echo $sel_task->id ?>"
                                     class="p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]">View</a>
                                 </p>
                             </div class="col-span-1">
-                            <div>
-                                <a href="updateTask/<?php echo $sel_task->id ?>"
-                                    class="p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]">Update</a>
-                            </div>
                             <div class="col-span-1">
                                 <a href=""
                                     class="p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]">Delete</a>

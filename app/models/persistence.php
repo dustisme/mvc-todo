@@ -10,6 +10,7 @@ class Persistence implements persistenceInterface {
             $this->task_array = json_decode(file_get_contents(dirname(__DIR__) . '\..\web\json\data.json'));
         }
         $this->track_id = end($this->task_array)->id;
+        
     }
     function listTasks() {
         return $this->task_array;
@@ -30,9 +31,10 @@ class Persistence implements persistenceInterface {
         $this->addDataToJson($this->task_array);
     }
     function addTask() {
-        $task = new Task($this->track_id += 1, "","", '');
+        $newId = $this->track_id + 1;
+        $task = new Task($newId, "","", '');
         array_push($this->task_array[], $task);
-        return $this->addDataToJson($this->task_array);
+        return $task;
     }
     function deleteTask($task_id) {
         $del_task = $this->searchTask($task_id);
