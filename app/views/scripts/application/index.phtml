@@ -1,5 +1,9 @@
 <?php include dirname(__DIR__) . '\..\layouts\header.phtml'; ?>
-<div class="container h-auto p-10 mx-auto my-auto flex justify-center grid grid-rows-2 place-content-center">
+<div class="ml-32 p-15">
+    <button
+        class="p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]"><a href="addTask">Add Task</a></button>
+</div>
+<div class="p-10 h-auto m-10 flex justify-center grid grid-rows-2 place-content-center">
     <table class="min-w-full table-auto border-2 border-[#ef476f] border-collapse">
         <thead class="font-['Roboto'] rounded">
             <tr class="divide-x-2 divide-[#ef476f]">
@@ -51,5 +55,9 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+</div>
+<div class="ml-32 p-15">
+    <button
+        class="p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]"><a href="addTask">Add Task</a></button>
 </div>
 <?php include dirname(__DIR__) . '\..\layouts\footer.phtml'; ?>
