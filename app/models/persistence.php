@@ -10,7 +10,6 @@ class Persistence implements persistenceInterface {
             $this->task_array = json_decode(file_get_contents(dirname(__DIR__) . '\..\web\json\data.json'));
         }
         $this->track_id = end($this->task_array)->id;
-        
     }
     function listTasks() {
         return $this->task_array;
@@ -18,23 +17,21 @@ class Persistence implements persistenceInterface {
     function viewTask($task_id) {
         return $this->searchTask($task_id);
     }
-    function goToUpdateTask($task_id) {
-        return $this->searchTask($task_id);
-    }
-    function updateTask($task_id, Array $data): void {
+    function updateTask($task_id, $username, $taskDescription, $status, $startingDate, $finishedDate) {
         $task = $this->searchTask($task_id);
-        $task->username = $data['username'];
-        $task->task = $_POST['task'];
-        $task->status = $_POST['status'];
-        $task->startingDate = $_POST['startingDate'];
-        $task->finishedDate = $_POST['finishedDate'];
+        $task->username = $username;
+        $task->task = $taskDescription;
+        $task->status = $status;
+        $task->startingDate = $startingDate;
+        $task->finishedDate = $finishedDate;
         $this->addDataToJson($this->task_array);
+        return $task;
     }
     function addTask() {
         $newId = $this->track_id + 1;
         $task = new Task($newId, "","", '');
-        array_push($this->task_array[], $task);
-        return $task;
+        array_push($this->task_array, $task);
+        $this->addDataToJson($this->task_array);
     }
     function deleteTask($task_id) {
         $del_task = $this->searchTask($task_id);
