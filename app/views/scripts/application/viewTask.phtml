@@ -1,0 +1,46 @@
+<?php include dirname(__DIR__) . '\..\layouts\header.phtml'; ?>
+<div class="container mx-auto my-auto p-10">
+    <div class="container mx-auto my-auto p-10">
+        <table class="min-w-[60rem] place-content-center table-auto border-2 border-[#ef476f] border-separate">
+            <tbody class="text-[#06d6a0]">
+                <tr class="divide-x-2 divide-[#ef476f]">
+                    <th class="w-[10rem] p-2 text-[#118ab2] bg-[#ffd166]">Username</th>
+                    <td class="p-2">
+                        <?php echo $this->viewTask->username; ?>
+                    </td>
+                </tr>
+                <tr class="divide-x-2 divide-[#ef476f]">
+                    <th class="w-[10rem] p-2 text-[#118ab2] bg-[#ffd166]">Task</th>
+                    <td class="p-2">
+                        <?php echo $this->viewTask->taskDescription; ?>
+                    </td>
+                </tr>
+                <tr class="divide-x-2 divide-[#ef476f]">
+                    <th class="w-[10rem] p-2 text-[#118ab2] bg-[#ffd166]">Status</th>
+                    <td class="p-2">
+                        <?php echo $this->viewTask->status; ?>
+                    </td>
+                </tr>
+                <tr class="divide-x-2 divide-[#ef476f]">
+                    <th class="w-[10rem] p-2 text-[#118ab2] bg-[#ffd166]">Started Date</th>
+                    <td class="p-2">
+                        <?php echo $this->viewTask->startingDate; ?>
+                    </td>
+                </tr>
+                <tr class="divide-x-2 divide-[#ef476f]">
+                    <th class="w-[10rem] p-2 text-[#118ab2] bg-[#ffd166]">Finished Date</th>
+                    <td class="p-2">
+                        <?php echo $this->viewTask->finishedDate; ?>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button
+            class="m-5 p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]"><a
+                href="<?php echo WEB_ROOT ?>">Return to Homepage</a></button>
+        <button
+            class="m-5 p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]"><a
+                href="<?php echo WEB_ROOT?>/updateTask/<?php echo $this->viewTask->id?>">Update Task</a></button>
+    </div>
+</div>
+<?php include dirname(__DIR__) . '\..\layouts\footer.phtml'; ?>

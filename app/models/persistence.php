@@ -17,27 +17,17 @@ class Persistence implements persistenceInterface {
     function viewTask($task_id) {
         return $this->searchTask($task_id);
     }
-    function updateTask($task_id) {
-        if ($this->searchTask($task_id) == $_GET['id']) {
-            $this->searchTask($task_id)->username = $_POST['username'];
-            $this->searchTask($task_id)->task = $_POST['task'];
-            $this->searchTask($task_id)->status = $_POST['status'];
-            $this->searchTask($task_id)->startingDate = $_POST['startingDate'];
-            $this->searchTask($task_id)->finishedDate = $_POST['finishedDate'];
-        } else {
-            return dirname(__DIR__ ) . '\..\views\scripts\error\error.phtml';
-        }
-        array_merge($this->task_array, $this->searchTask($task_id));
-        return $this->addDataToJson($this->task_array);
-        // $this->searc = array_merge($this->task_array, $data);
-        // return $this->addDataToJson($this->task_array);
-        // $this->searchTask($task_id)->username = $_POST['username'];
-        // $this->searchTask($task_id)->task = $_POST['task_description'];
-        // $this->searchTask($task_id)->status = $_POST['status'];
-        // $this->searchTask($task_id)->startingDate = $_POST['starting_date'];
-        // $this->searchTask($task_id)->finishedDate = $_POST['finished_date'];
-        // $this->addDataToJson($this->task_array);
-        // return $this->addDataToJson($this->task_array);
+    function goToUpdateTask($task_id) {
+        return $this->searchTask($task_id);
+    }
+    function updateTask($task_id, Array $data): void {
+        $task = $this->searchTask($task_id);
+        $task->username = $data['username'];
+        $task->task = $_POST['task'];
+        $task->status = $_POST['status'];
+        $task->startingDate = $_POST['startingDate'];
+        $task->finishedDate = $_POST['finishedDate'];
+        $this->addDataToJson($this->task_array);
     }
     function addTask() {
         $task = new Task($this->track_id += 1, "","", '');

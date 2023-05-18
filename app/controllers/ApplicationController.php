@@ -16,8 +16,12 @@ class ApplicationController extends Controller
     public function viewTaskAction() {
         $this->view->viewTask = $this->persistence->viewTask($this->_namedParameters['id']);
     }
-    public function updateTaskAction() {
-        $this->view->updateTask = $this->persistence->updateTask($this->_namedParameters['id'], $this->_namedParameters['username'], $this->_namedParameters['task'], $this->_namedParameters['status'], $this->_namedParameters['startingDate'], $this->_namedParameters['finishedDate']);
+    public function goToUdateTaskAction() {
+        $this->view->viewTask = $this->persistence->viewTask($this->_namedParameters['id']);
+    }
+    public function updateTask() {
+        $this->persistence->updateTask($this->_namedParameters['id']);
+        header ("Location: " . WEB_ROOT . "/");
     }
     public function addTaskAction() {
         $this->persistence->addTask();
