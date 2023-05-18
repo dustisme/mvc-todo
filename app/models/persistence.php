@@ -19,21 +19,17 @@ class Persistence implements persistenceInterface
     }
     function viewTask($task_id)
     {
-        return $task = $this->searchTask($task_id);
+        return $this->searchTask($task_id);
     }
     function updateTask($task_id, Array $data)
     {
-        $this->searchTask($task_id)->username = $data[1];
-        $this->searchTask($task_id)->taskDescription = $data[2];
-        $this->searchTask($task_id)->status = $data[3];
-        $this->searchTask($task_id)->startingDate = $data[4];
-        $this->searchTask($task_id)->finishedDate = $data[5];
-
-        // $task->username = $data[1];
-        // $task->task = $data[2];
-        // $task->status = $data[3];
-        // $task->startingDate = $data[4];
-        // $task->finishedDate = $data[5];
+        $task = $this->searchTask($task_id);
+        
+        $task->username = $data['username'];
+        $task->taskDescription = $data['taskDescription'];
+        $task->status = $data['status'];
+        $task->startingDate = $data['startingDate'];
+        $task->finishedDate = $data['finishedDate'];
         $this->addDataToJson($this->task_array);
     }
     function addTask()

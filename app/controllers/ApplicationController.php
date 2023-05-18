@@ -30,8 +30,33 @@ class ApplicationController extends Controller
     }
     public function addTaskAction()
     {
-        $this->persistence->addTask();
-        header("Location: " . WEB_ROOT . "/");
+        $isValid = true;
+
+        $errors = [
+            'id' => '',
+            'user' => "",
+            'task' => "",
+            'status' => "",
+            'start_date' => "",
+        ];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $data = $_POST;
+            //start validation
+            if (!$data['user']) {
+                $isValid = false;
+                $errors['user'] = 'Name is mandatory';
+            }
+            if (!$data['task']) {
+                $isValid = false;
+                $errors['task'] = 'Task is required';
+            }
+            //end validation
+            if ($isValid) {
+                $this->persistence->addTask();
+                // header("Location: " . WEB_ROOT . "/");
+                exit;
+            }
+        }
     }
     public function deleteTaskAction()
     {
