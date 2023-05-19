@@ -31,7 +31,6 @@ class ApplicationController extends Controller
     public function addTaskAction()
     {
         $this->persistence->addTask($_POST);
-        header("Location: " . WEB_ROOT . "/");
     }
     public function deleteTaskAction()
     {

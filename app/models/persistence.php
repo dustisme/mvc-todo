@@ -1,5 +1,5 @@
 <?php
-include 'Task.php';
+include 'Task.class.php';
 
 class Persistence implements persistenceInterface
 {
