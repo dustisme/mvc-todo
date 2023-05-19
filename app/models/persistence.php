@@ -11,7 +11,7 @@ class Persistence implements persistenceInterface
         if (file_exists(dirname(__DIR__) . '\..\web\json\data.json')) {
             $this->task_array = json_decode(file_get_contents(dirname(__DIR__) . '\..\web\json\data.json'));
         }
-        $this->track_id = end($this->task_array)->id;
+        // $this->track_id = 0;
     }
     function listTasks()
     {
@@ -21,7 +21,7 @@ class Persistence implements persistenceInterface
     {
         return $this->searchTask($task_id);
     }
-    function updateTask($task_id, Array $data)
+    function updateTask($task_id, array $data)
     {
         $task = $this->searchTask($task_id);
         if (!empty($data['useranme'] || $data['taskDescription'] || $data['status'] || $data['sartingDate'] || $data['finishedDate'])) {
@@ -33,18 +33,27 @@ class Persistence implements persistenceInterface
         }
         $this->addDataToJson($this->task_array);
     }
-    function addTask()
+    function addTask(array $data)
     {
-        $newId = $this->track_id + 1;
-        $task = new Task($newId, "", "", '');
+        $task = new Task("", "", "", '');
+        $task->setId($this->setNewId());
+        // if(empty($data['useranme'] || $data['taskDescription'] || $data['status'] || $data['sartingDate'] || $data['finishedDate'])) {
+        // $task->username = $data['username'];
+        // $task->taskDescription = $data['taskDescription'];
+        // $task->status = $data['status'];
+        // $task->startingDate = $data['startingDate'];
+        // $task->finishedDate = $data['finishedDate'];
+    // }
         array_push($this->task_array, $task);
         $this->addDataToJson($this->task_array);
+        return $this->task_array;
     }
     function deleteTask($task_id)
     {
         $del_task = $this->searchTask($task_id);
         unset($del_task);
-        return $this->addDataToJson($this->task_array);
+        $this->addDataToJson($this->task_array);
+        return $this->task_array;
     }
     function searchTask($task_id)
     {
@@ -54,6 +63,12 @@ class Persistence implements persistenceInterface
             }
         }
         return false;
+    }
+    function setNewId()
+    {
+        $lastTask = end($this->task_array);
+        $newId = $lastTask->id + 1;
+        return $newId;
     }
     function addDataToJson($task_array)
     {
