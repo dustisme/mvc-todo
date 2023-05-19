@@ -30,13 +30,14 @@
                         <div
                             class="container flex justify-center place-items-center grid grid-cols-2 gap-5 p-5 mx-auto my-auto">
                             <div class="col-span-1">
-                                <a href="viewTask/<?php echo $sel_task->id ?>"
-                                    class="p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]">View</a>
-                                </p>
+                                <button type="button"
+                                    class="p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]">
+                                <a href="viewTask/<?php echo $sel_task->id ?>">View</a></button>
                             </div class="col-span-1">
                             <div class="col-span-1">
                                 <button type="button"
-                                    class="p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]"><a href="<?php echo $this->deleteTask ?>">Delete</a></button>
+                                    class="p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]"><a
+                                        href="<?php echo $this->deleteTask ?>">Delete</a></button>
                             </div>
                         </div>
                     </td>

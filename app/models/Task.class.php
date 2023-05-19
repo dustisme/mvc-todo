@@ -8,11 +8,11 @@
         public $finishedDate;
 
         //Status is a constant var
-        function __construct($username, $taskDescription, $status, $startingDate) {
-            $this->username = $username;
-            $this->taskDescription = $taskDescription;
-            $this->status = $status;
-            $this->startingDate = $startingDate;
+        function __construct() {
+            $this->username;
+            $this->taskDescription;
+            $this->status;
+            $this->startingDate;
         }
         //getters
         function getId() {

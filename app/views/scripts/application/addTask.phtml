@@ -1,8 +1,7 @@
 <?php include dirname(__DIR__) . '\..\layouts\header.phtml'; ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js"></script>
 <div class="container my-24 px-6 mx-auto">
-    <form action="<?php echo WEB_ROOT?>/addTask" method="POST">
-        <!-- <input type="hidden" name="task" value="<?php //echo $this->addTask; ?>"> -->
+    <form action="<?php echo WEB_ROOT ?>/addTask" method="POST">
         <div class="container p-10 mx-auto my-auto p-10 rounded">
             <table class="min-w-full table-auto border-2 border-[#ef476f] border-collapse">
                 <tbody>
@@ -11,15 +10,15 @@
                         <td>
                             <input type="text" name="username"
                                 class="rounded border-2 border-[#118ab2] focus:outline-none focus:border-[#ef476f]"
-                                value="">
+                                value="<?php echo $this->addTask->username?>">
                         </td>
                     </tr>
                     <tr>
                         <th class="p-2 text-[#118ab2] bg-[#ffd166]">Task</th>
                         <td>
-                            <input type="text" name="taskDescription"
+                            <input type="text" name="taskDescription" 
                                 class="rounded border-2 border-[#118ab2] focus:outline-none focus:border-[#ef476f]"
-                                value="">
+                                value="<?php echo $this->addTask->taskDescription?>">
                         </td>
                     </tr>
                     <tr>

@@ -11,7 +11,7 @@ class Persistence implements persistenceInterface
         if (file_exists(dirname(__DIR__) . '\..\web\json\data.json')) {
             $this->task_array = json_decode(file_get_contents(dirname(__DIR__) . '\..\web\json\data.json'));
         }
-        // $this->track_id = 0;
+        $this->track_id = 0;
     }
     function listTasks()
     {
@@ -35,18 +35,21 @@ class Persistence implements persistenceInterface
     }
     function addTask(array $data)
     {
-        $task = new Task("", "", "", '');
+        $task = new Task();
         $task->setId($this->setNewId());
-        // if(empty($data['useranme'] || $data['taskDescription'] || $data['status'] || $data['sartingDate'] || $data['finishedDate'])) {
-        // $task->username = $data['username'];
-        // $task->taskDescription = $data['taskDescription'];
-        // $task->status = $data['status'];
-        // $task->startingDate = $data['startingDate'];
-        // $task->finishedDate = $data['finishedDate'];
-    // }
+
+        
+        
+        // if (empty($data['useranme'] && $data['taskDescription'] && $data['status'] && $data['sartingDate'] && $data['finishedDate'])) {
+        //     $task->username = $data['username'];
+        //     $task->taskDescription = $data['taskDescription'];
+        //     $task->status = $data['status'];
+        //     $task->startingDate = $data['startingDate'];
+        //     $task->finishedDate = $data['finishedDate'];
+        // }
         array_push($this->task_array, $task);
         $this->addDataToJson($this->task_array);
-        return $this->task_array;
+        return $task;
     }
     function deleteTask($task_id)
     {
@@ -67,8 +70,8 @@ class Persistence implements persistenceInterface
     function setNewId()
     {
         $lastTask = end($this->task_array);
-        $newId = $lastTask->id + 1;
-        return $newId;
+        $this->track_id = $lastTask->id + 1;
+        return $this->track_id;
     }
     function addDataToJson($task_array)
     {
