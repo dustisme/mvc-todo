@@ -2,7 +2,7 @@
 <div class="ml-32 p-15">
     <button
         class="p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]"><a
-            href="addTask">Add Task</a></button>
+            href="createTask">Add Task</a></button>
 </div>
 <div class="p-10 h-auto m-10 flex justify-center grid grid-rows-2 place-content-center">
     <table class="min-w-full table-auto border-2 border-[#ef476f] border-collapse">
@@ -15,16 +15,16 @@
             </tr>
         </thead>
         <tbody class="text-[#06d6a0]">
-            <?php foreach ($this->listTasks as $sel_task): ?>
+            <?php foreach ($this->listTasks as $task): ?>
                 <tr class="divide-x-2 divide-[#ef476f]">
                     <td class="text-center p-2">
-                        <?php echo $sel_task->username ?>
+                        <?php echo $task['username'] ?>
                     </td>
                     <td class="text-center p-2">
-                        <?php echo $sel_task->taskDescription ?>
+                    <?php echo $task['taskDescription'] ?>
                     </td>
                     <td class="text-center p-2">
-                        <?php echo $sel_task->status ?>
+                    <?php echo $task['status'] ?>
                     </td>
                     <td>
                         <div
@@ -32,7 +32,7 @@
                             <div class="col-span-1">
                                 <button type="button"
                                     class="p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]">
-                                <a href="viewTask/<?php echo $sel_task->id ?>">View</a></button>
+                                <a href="viewTask/<?php echo $task['id'] ?>">View</a></button>
                             </div class="col-span-1">
                             <div class="col-span-1">
                                 <button type="button"
@@ -49,6 +49,6 @@
 <div class="ml-32 p-15">
     <button
         class="p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]"><a
-            href="addTask">Add Task</a></button>
+            href="createTask/<?php echo $this->addTask?>">Add Task</a></button>
 </div>
 <?php include dirname(__DIR__) . '\..\layouts\footer.phtml'; ?>

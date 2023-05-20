@@ -3,7 +3,7 @@
         "id": 100,
         "username": "Brenden Chang",
         "taskDescription": "ac nulla. In",
-        "status": "executing",
+        "status": "Executing",
         "startingDate": "01\/02\/2023",
         "finishedDate": null
     },
@@ -11,7 +11,7 @@
         "id": 101,
         "username": "Macon May",
         "taskDescription": "gravida sit amet, dapibus",
-        "status": "finished",
+        "status": "Finished",
         "startingDate": "12\/04\/2022",
         "finishedDate": "02\/03\/2023"
     },
@@ -19,7 +19,7 @@
         "id": 102,
         "username": "Kennedy Mercer",
         "taskDescription": "sem. Pellentesque ut ipsum ac mi eleifend egestas. Sed pharetra, felis eget varius ultrices,",
-        "status": "pending",
+        "status": "Pending",
         "startingDate": "24\/04\/2023",
         "finishedDate": "30\/04\/2023"
     },
@@ -27,7 +27,7 @@
         "id": 103,
         "username": "Blake Sweeney",
         "taskDescription": "dapibus ligula.",
-        "status": "executing",
+        "status": "Executing",
         "startingDate": "08\/08\/2023",
         "finishedDate": null
     },
@@ -35,7 +35,7 @@
         "id": 104,
         "username": "Ashely Snider",
         "taskDescription": "blandit enim consequat purus. Maecenas libero est, congue a, aliquet vel,",
-        "status": "executing",
+        "status": "Executing",
         "startingDate": "20\/10\/2023",
         "finishedDate": null
     },
