@@ -46,5 +46,13 @@
         "status": "Executing",
         "startingDate": "20\/05\/2023",
         "finishedDate": ""
+    },
+    {
+        "id": 106,
+        "username": "Andrea Ros",
+        "taskDescription": "book table at Siente",
+        "status": "Pending",
+        "startingDate": "04\/06\/2023",
+        "finishedDate": ""
     }
 ]

@@ -28,13 +28,13 @@ class ApplicationController extends Controller
         $this->persistence->updateTask($this->_namedParameters['id'], $_POST);
         header("Location: " . WEB_ROOT . "/");
     }
+    public function createTaskAction() {
+        $this->view->viewTask = $this->persistence->viewTask($this->_namedParameters['id']);
+    }
     public function addTaskAction()
     {
         $this->persistence->addTask($_POST);
         header("Location: " . WEB_ROOT . "/");
-    }
-    public function createTaskAction() {
-        $this->view->viewTask = $this->persistence->viewTask($this->_namedParameters['id']);
     }
     public function deleteTaskAction()
     {

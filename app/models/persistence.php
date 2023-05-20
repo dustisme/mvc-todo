@@ -53,6 +53,7 @@ class Persistence implements persistenceInterface
         $task['finishedDate'] = $data['finishedDate'];
         array_push($this->taskArray, $task);
         $this->addDataToJson($this->taskArray);
+        return $task;
     }
     //busca una tasca a partir de l'id i la elimina
     function deleteTask($taskId)
