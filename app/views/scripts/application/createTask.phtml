@@ -1,7 +1,8 @@
 <?php include dirname(__DIR__) . '\..\layouts\header.phtml'; ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js"></script>
 <div class="container my-24 px-6 mx-auto">
-    <form action="<?php echo WEB_ROOT ?>/addTask" method="POST">
+    <form action="addTask" method="POST">
+        <input type="hidden" value="<?php echo $this->viewTask['id']?>">
         <div class="container p-10 mx-auto my-auto p-10 rounded">
             <table class="min-w-full table-auto border-2 border-[#ef476f] border-collapse">
                 <tbody>
@@ -10,15 +11,15 @@
                         <td>
                             <input type="text" name="username"
                                 class="rounded border-2 border-[#118ab2] focus:outline-none focus:border-[#ef476f]"
-                                value="<?php echo $this->addTask->username?>">
+                                value="<?php echo $this->addTask ?>">
                         </td>
                     </tr>
                     <tr>
                         <th class="p-2 text-[#118ab2] bg-[#ffd166]">Task</th>
                         <td>
-                            <input type="text" name="taskDescription" 
+                            <input type="text" name="taskDescription" id="taskDescription"
                                 class="rounded border-2 border-[#118ab2] focus:outline-none focus:border-[#ef476f]"
-                                value="<?php echo $this->addTask->taskDescription?>">
+                                value="<?php echo $this->addTask ?>">
                         </td>
                     </tr>
                     <tr>
@@ -26,11 +27,11 @@
                         <td>
                             <select class="rounded border-2 border-[#118ab2] focus:outline-none focus:border-[#ef476f]"
                                 name="status" id="">
-                                <option value="Pending" == "pending" ? "selected" : "" ?>
+                                <option value="Pending" <?php echo $this->addTask ?> == "pending" ? "selected" : "" ?>
                                     Pending</option>
-                                <option value="Executing" == "executing" ? "selected" : "" ?>
+                                <option value="Executing" <?php echo $this->addTask ?> == "executing" ? "selected" : "" ?>
                                     Executing</option>
-                                <option value="Finished" == "finished" ? "selected" : "" ?>
+                                <option value="Finished" <?php echo $this->addTask ?> == "finished" ? "selected" : "" ?>
                                     Finished</option>
                             </select>
                         </td>
@@ -49,7 +50,7 @@
                                 </div>
                                 <input datepicker datepicker-format="dd/mm/yyyy" type="text" name="startingDate"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Select date" value="">
+                                    placeholder="Select date" value="<?php echo $this->addTask ?>">
                             </div>
                         </td>
                     </tr>
@@ -67,7 +68,7 @@
                                 </div>
                                 <input datepicker datepicker-format="dd/mm/yyyy" type="text" name="finishedDate"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Select date" value="">
+                                    placeholder="Select date" value="<?php echo $this->addTask ?>">
                             </div>
                         </td>
                     </tr>
