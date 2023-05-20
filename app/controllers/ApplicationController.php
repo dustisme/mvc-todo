@@ -30,8 +30,11 @@ class ApplicationController extends Controller
     }
     public function addTaskAction()
     {
-        $this->view->viewNewTask = $this->persistence->addTask($_POST);
+        $this->persistence->addTask($_POST);
         header("Location: " . WEB_ROOT . "/");
+    }
+    public function createTaskAction() {
+        $this->view->viewTask = $this->persistence->viewTask($this->_namedParameters['id']);
     }
     public function deleteTaskAction()
     {
