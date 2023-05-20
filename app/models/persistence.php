@@ -3,78 +3,88 @@ include 'Task.class.php';
 
 class Persistence implements persistenceInterface
 {
-    private array $task_array = array();
-    private int $track_id;
+    private array $taskArray = array();
+    //atribut per generar noves id
+    private int $trackId = 0;
 
     function __construct()
     {
         if (file_exists(dirname(__DIR__) . '\..\web\json\data.json')) {
-            $this->task_array = json_decode(file_get_contents(dirname(__DIR__) . '\..\web\json\data.json'));
+            $this->taskArray = json_decode(file_get_contents(dirname(__DIR__) . '\..\web\json\data.json'), true);
         }
-        $this->track_id = 0;
     }
     function listTasks()
     {
-        return $this->task_array;
+        return $this->taskArray;
     }
-    function viewTask($task_id)
+    function viewTask($taskId)
     {
-        return $this->searchTask($task_id);
-    }
-    function updateTask($task_id, array $data)
-    {
-        $task = $this->searchTask($task_id);
-        if (!empty($data['useranme'] || $data['taskDescription'] || $data['status'] || $data['sartingDate'] || $data['finishedDate'])) {
-            $task->username = $data['username'];
-            $task->taskDescription = $data['taskDescription'];
-            $task->status = $data['status'];
-            $task->startingDate = $data['startingDate'];
-            $task->finishedDate = $data['finishedDate'];
+        $tasks = $this->taskArray;
+        foreach ($tasks as $task) {
+            if ($task['id'] == $taskId) {
+                return $task;
+            }
         }
-        $this->addDataToJson($this->task_array);
+        return null;
+    }
+    function updateTask($taskId, array $data)
+    {
+        $tasks = $this->taskArray;
+        foreach ($tasks as $task) {
+            if ($task['id'] == $taskId) {
+                $task['username'] = $data['username'];
+                $task['taskDescription'] = $data['taskDescription'];
+                $task['status'] = $data['status'];
+                $task['startingDate'] = $data['startingDate'];
+                $task['finishedDate'] = $data['finishedDate'];
+            }
+        }
+        $this->addDataToJson($tasks);
     }
     function addTask(array $data)
     {
-        $task = new Task();
-        $task->setId($this->setNewId());
-
-        
-        
-        // if (empty($data['useranme'] && $data['taskDescription'] && $data['status'] && $data['sartingDate'] && $data['finishedDate'])) {
-        //     $task->username = $data['username'];
-        //     $task->taskDescription = $data['taskDescription'];
-        //     $task->status = $data['status'];
-        //     $task->startingDate = $data['startingDate'];
-        //     $task->finishedDate = $data['finishedDate'];
-        // }
-        array_push($this->task_array, $task);
-        $this->addDataToJson($this->task_array);
-        return $task;
+        $task = array();
+        $this->trackId = end($this->taskArray)['id'] + 1;
+        $task['id'] = $this->trackId;
+        $task['username'] = $data['username'];
+        $task['taskDescription'] = $data['taskDescription'];
+        $task['status'] = $data['status'];
+        $task['startingDate'] = $data['startingDate'];
+        $task['finishedDate'] = $data['finishedDate'];
+        array_push($this->taskArray, $task);
+        $this->addDataToJson($this->taskArray);
     }
-    function deleteTask($task_id)
+    //busca una tasca a partir de l'id i la elimina
+    function deleteTask($taskId)
     {
-        $del_task = $this->searchTask($task_id);
-        unset($del_task);
-        $this->addDataToJson($this->task_array);
-        return $this->task_array;
-    }
-    function searchTask($task_id)
-    {
-        foreach ($this->task_array as $sel_task) {
-            if ($sel_task->id == $task_id) {
-                return $sel_task;
+        $tasks = $this->taskArray;
+        foreach ($tasks as $i => $task) {
+            if ($task['id'] == $taskId) {
+                unset($task[$i]);
             }
         }
-        return false;
+        $this->addDataToJson($this->taskArray);
+        // return $this->task_array;
     }
-    function setNewId()
+    //busca una tasca a prtir de l'id
+    // function searchTask($taskId)
+    // {
+    //     foreach ($this->taskArray as $task) {
+    //         if ($task['0'] == $taskId) {
+    //             return $task;
+    //         }
+    //     }
+    //     return false;
+    // }
+    // function setNewId()
+    // {
+    //     $lastTask = end($this->taskArray);
+    //     $this->trackId = $lastTask['id'] + 1;
+    //     return $this->trackId;
+    // }
+    //codifica l'array en un arxiu json i el posa bonic
+    function addDataToJson($taskArray)
     {
-        $lastTask = end($this->task_array);
-        $this->track_id = $lastTask->id + 1;
-        return $this->track_id;
-    }
-    function addDataToJson($task_array)
-    {
-        file_put_contents(dirname(__DIR__) . '\..\web\json\data.json', json_encode($task_array, JSON_PRETTY_PRINT));
+        file_put_contents(dirname(__DIR__) . '\..\web\json\data.json', json_encode($taskArray, JSON_PRETTY_PRINT));
     }
 }
