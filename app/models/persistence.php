@@ -55,35 +55,16 @@ class Persistence implements persistenceInterface
         $this->addDataToJson($this->taskArray);
         return $task;
     }
-    //busca una tasca a partir de l'id i la elimina
     function deleteTask($taskId)
     {
         $tasks = $this->taskArray;
         foreach ($tasks as $i => $task) {
             if ($task['id'] == $taskId) {
-                unset($task[$i]);
+                unset($tasks[$i]);
             }
         }
-        $this->addDataToJson($this->taskArray);
-        // return $this->task_array;
+        $this->addDataToJson($tasks);
     }
-    //busca una tasca a prtir de l'id
-    // function searchTask($taskId)
-    // {
-    //     foreach ($this->taskArray as $task) {
-    //         if ($task['0'] == $taskId) {
-    //             return $task;
-    //         }
-    //     }
-    //     return false;
-    // }
-    // function setNewId()
-    // {
-    //     $lastTask = end($this->taskArray);
-    //     $this->trackId = $lastTask['id'] + 1;
-    //     return $this->trackId;
-    // }
-    //codifica l'array en un arxiu json i el posa bonic
     function addDataToJson($taskArray)
     {
         file_put_contents(dirname(__DIR__) . '\..\web\json\data.json', json_encode($taskArray, JSON_PRETTY_PRINT));
