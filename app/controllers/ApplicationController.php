@@ -28,39 +28,17 @@ class ApplicationController extends Controller
         $this->persistence->updateTask($this->_namedParameters['id'], $_POST);
         header("Location: " . WEB_ROOT . "/");
     }
+    public function createTaskAction() {
+        $this->view->viewTask = $this->persistence->viewTask($this->_namedParameters['id']);
+    }
     public function addTaskAction()
     {
-        $isValid = true;
-
-        $errors = [
-            'id' => '',
-            'user' => "",
-            'task' => "",
-            'status' => "",
-            'start_date' => "",
-        ];
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $data = $_POST;
-            //start validation
-            if (!$data['user']) {
-                $isValid = false;
-                $errors['user'] = 'Name is mandatory';
-            }
-            if (!$data['task']) {
-                $isValid = false;
-                $errors['task'] = 'Task is required';
-            }
-            //end validation
-            if ($isValid) {
-                $this->persistence->addTask();
-                // header("Location: " . WEB_ROOT . "/");
-                exit;
-            }
-        }
+        $this->persistence->addTask($_POST);
+        header("Location: " . WEB_ROOT . "/");
     }
     public function deleteTaskAction()
     {
-        $this->persistence->deleteTask($_POST['id']);
+        $this->persistence->deleteTask($this->_namedParameters['id']);
         header("Location: " . WEB_ROOT . "/");
     }
 }
