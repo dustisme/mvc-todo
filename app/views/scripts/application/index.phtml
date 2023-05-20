@@ -21,10 +21,10 @@
                         <?php echo $task['username'] ?>
                     </td>
                     <td class="text-center p-2">
-                    <?php echo $task['taskDescription'] ?>
+                        <?php echo $task['taskDescription'] ?>
                     </td>
                     <td class="text-center p-2">
-                    <?php echo $task['status'] ?>
+                        <?php echo $task['status'] ?>
                     </td>
                     <td>
                         <div
@@ -32,12 +32,12 @@
                             <div class="col-span-1">
                                 <button type="button"
                                     class="p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]">
-                                <a href="viewTask/<?php echo $task['id'] ?>">View</a></button>
+                                    <a href="viewTask/<?php echo $task['id'] ?>">View</a></button>
                             </div class="col-span-1">
                             <div class="col-span-1">
                                 <button type="button"
                                     class="p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]">
-                                <a href="editTask/<?php echo $task['id'] ?>">Update</a></button>
+                                    <a href="editTask/<?php echo $task['id'] ?>">Update</a></button>
                             </div class="col-span-1">
                             <div class="col-span-1">
                                 <button type="button"
@@ -54,6 +54,6 @@
 <div class="ml-32 p-15">
     <button
         class="p-1.5 rounded-full border-2 border-[#ef476f] hover:border-transparent font-bold text-[#06d6a0] hover:text-[#118ab2] hover:bg-[#ffd166]"><a
-            href="createTask/<?php echo $this->addTask?>">Add Task</a></button>
+            href="createTask/<?php echo $this->addTask ?>">Add Task</a></button>
 </div>
 <?php include dirname(__DIR__) . '\..\layouts\footer.phtml'; ?>
