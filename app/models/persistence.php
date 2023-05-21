@@ -30,15 +30,16 @@ class Persistence implements persistenceInterface
     function updateTask($taskId, array $data)
     {
         $tasks = $this->taskArray;
-        $foundTask = false;
-        for ($i = 0; $i < count($tasks) && !$foundTask; $i++) {
+        foreach ($tasks as $task) {
             if ($task['id'] == $taskId) {
-                $foundTask = true;
+                if (!empty($data['useranme'] || $data['taskDescription'] || $data['status'] || $data['sartingDate'] || $data['finishedDate'])) {
                 $task['username'] = $data['username'];
                 $task['taskDescription'] = $data['taskDescription'];
                 $task['status'] = $data['status'];
                 $task['startingDate'] = $data['startingDate'];
                 $task['finishedDate'] = $data['finishedDate'];
+                }
+                // array_merge($this->taskArray, $tasks);
                 $this->addDataToJson($tasks);
             }
         }
