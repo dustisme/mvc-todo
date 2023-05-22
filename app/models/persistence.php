@@ -1,5 +1,5 @@
 <?php
-include 'Task.class.php';
+// include 'persistenceInterface.php';
 
 class Persistence implements persistenceInterface
 {
@@ -32,14 +32,17 @@ class Persistence implements persistenceInterface
         $tasks = $this->taskArray;
         foreach ($tasks as $task) {
             if ($task['id'] == $taskId) {
+                if (!empty($data['useranme'] || $data['taskDescription'] || $data['status'] || $data['sartingDate'] || $data['finishedDate'])) {
                 $task['username'] = $data['username'];
                 $task['taskDescription'] = $data['taskDescription'];
                 $task['status'] = $data['status'];
                 $task['startingDate'] = $data['startingDate'];
                 $task['finishedDate'] = $data['finishedDate'];
+                }
+                // array_merge($this->taskArray, $tasks);
+                $this->addDataToJson($tasks);
             }
         }
-        $this->addDataToJson($tasks);
     }
     function addTask(array $data)
     {
